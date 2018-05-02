@@ -38,7 +38,7 @@ gulp.task('compass', function(){
 		.pipe(gulp.dest('builds/development/css'))
 });
 
-gulp.task('default', ['coffee' , 'js' , 'compass']);  //default task
+gulp.task('default', ['coffee' , 'js' , 'compass','watch']);  //default task
 
 gulp.task('watch',function  () {
 	gulp.watch(coffeeSources , ['coffee']);            // special method whenever some changes in file
