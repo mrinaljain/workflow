@@ -21,7 +21,7 @@ gulp.task('coffee', function () {
 		.pipe(gulp.dest('components/scripts'))
 });
 
-gulp.task('js',['coffee'] ,function(){
+gulp.task('js' ,function(){
 	gulp.src(jsSources)
 		.pipe(concat('script.js'))
 		.pipe(browserify())
@@ -38,8 +38,10 @@ gulp.task('compass', function(){
 		.pipe(gulp.dest('builds/development/css'))
 });
 
-gulp.task('default', ['coffee' , 'js' , 'compass']);
+gulp.task('default', ['coffee' , 'js' , 'compass']);  //default task
 
 gulp.task('watch',function  () {
-	gulp.watch(coffeeSources , ['coffee']);
+	gulp.watch(coffeeSources , ['coffee']);            // special method whenever some changes in file
+	gulp.watch(jsSources , ['js']);            // special method whenever some changes in file
+	gulp.watch('components/sass/*.scss' , ['compass']);            // special method whenever some changes in file
 });
